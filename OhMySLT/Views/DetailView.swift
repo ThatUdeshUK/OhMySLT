@@ -21,28 +21,41 @@ struct DetailView: View {
                     Text(usageDetail.name.toHuman())
                         .fontWeight(.bold)
                         .font(.title3)
-                    if let remaining = usageDetail.remaining {
-                        Text(remaining + "GB Remaining").opacity(0.6)
-                    } else {
-                        EmptyView()
+                    if usageDetail.remaining != nil {
+                        Text(usageDetail.used + "GB Used").opacity(0.6)
                     }
                 }
                 Spacer()
-                HStack(alignment: .lastTextBaseline) {
-                    Text(usageDetail.used)
-                        .font(.system(size: 28))
-                        .opacity(0.8)
-                    if let limit = usageDetail.limit {
+                if let limit = usageDetail.limit, let remaining = usageDetail.remaining {
+                    HStack(alignment: .lastTextBaseline) {
+                        Text(remaining)
+                            .font(.system(size: 28))
+                            .opacity(0.8)
                         Text("/ " + limit + " GB")
                             .font(.system(size: 16))
                             .opacity(0.5)
-                    } else {
-                        EmptyView()
                     }
+                } else {
+                    Text(usageDetail.used)
+                        .font(.system(size: 28))
+                        .opacity(0.8)
                 }
             }
-            ProgressView(value: Float(100 - usageDetail.percentage), total: 100.0)
+            ProgressView(value: Float(usageDetail.percentage), total: 100.0)
+                .tint(getProgressColor(progress: usageDetail.percentage))
             Divider()
+        }
+    }
+    
+    func getProgressColor(progress: Int) -> Color {
+        if progress > 50 {
+            return Color.green
+        } else if progress > 20 {
+            return Color.yellow
+        } else if progress > 5 {
+            return Color.orange
+        } else {
+            return Color.red
         }
     }
 }
