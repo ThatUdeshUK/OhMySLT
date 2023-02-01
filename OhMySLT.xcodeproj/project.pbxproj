@@ -25,6 +25,8 @@
 
 /* Begin PBXFileReference section */
 		B71E876E296CFD360064A516 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B72C5EED298A103B00AF6476 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B72C5EEE298A145400AF6476 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B7943E43296C413100BACA6E /* OhMySLT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OhMySLT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7943E46296C413100BACA6E /* OhMySLTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OhMySLTApp.swift; sourceTree = "<group>"; };
 		B7943E48296C413100BACA6E /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -67,6 +69,8 @@
 		B7943E3A296C413100BACA6E = {
 			isa = PBXGroup;
 			children = (
+				B72C5EEE298A145400AF6476 /* .gitignore */,
+				B72C5EED298A103B00AF6476 /* README.md */,
 				B7943E45296C413100BACA6E /* OhMySLT */,
 				B7943E44296C413100BACA6E /* Products */,
 			);
