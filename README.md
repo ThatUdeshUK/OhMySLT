@@ -4,6 +4,8 @@ Mac OS menu bar application to view SLT internet usage details.
 
 ## Features
 
+<img width="346" alt="Screenshot of menu bar app" src="https://user-images.githubusercontent.com/9572475/215938926-1c598ddf-2364-4d44-9cf7-2bcd573670ba.png">
+
 - View **Day time/Total** remaining, used and total data
 - View **VAS Package** usages
 - Configure to any personal subscription
