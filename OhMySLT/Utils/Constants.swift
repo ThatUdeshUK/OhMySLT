@@ -10,6 +10,7 @@ import Foundation
 struct Constants {
     struct Urls {
         static let usageSummary = URL(string: "https://omniscapp.slt.lk/mobitelint/slt/api/BBVAS/UsageSummary")!
+        static let vasSummary = URL(string: "https://omniscapp.slt.lk/mobitelint/slt/api/BBVAS/GetDashboardVASBundles")!
     }
     struct Keys {
         static let clientID = "41aed706-8fdf-4b1e-883e-91e44d7f379b"

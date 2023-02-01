@@ -42,9 +42,11 @@ struct MenuView: View {
                 EmptyView()
             }
             
-            List(vm.usage?.dataBundle.myPackageInfo.usageDetails ?? [], id: \.name) { usageDetail in
+            List((vm.usage?.dataBundle.myPackageInfo.usageDetails ?? []) + (vm.vasUsage?.dataBundle.usageDetails ?? []), id: \.name) { usageDetail in
                 DetailView(usage: usageDetail)
-            }.task {
+            }
+            .scrollIndicators(.never)
+            .task {
                 do {
                     try await vm.populateUsage(
                         subscriberID: subscriberID,

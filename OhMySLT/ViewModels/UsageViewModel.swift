@@ -12,6 +12,7 @@ import Foundation
 class UsageViewModel: ObservableObject {
     
     @Published var usage : Usage?
+    @Published var vasUsage: VASUsage?
     
     func populateUsage(subscriberID: String, clientID: String, authToken: String) async throws {
         guard subscriberID.starts(with: "94"), subscriberID.count == 11 else {
@@ -26,6 +27,15 @@ class UsageViewModel: ObservableObject {
             clientId: clientID
         )
         self.usage = usage
+        
+        let vasUsage = try await WebService().getVASUsage(
+            url: Constants.Urls.vasSummary.appending(
+                queryItems: [URLQueryItem(name: "subscriberID", value: subscriberID)]
+            ),
+            authToken: authToken,
+            clientId: clientID
+        )
+        self.vasUsage = vasUsage
     }
     
 }

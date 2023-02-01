@@ -21,9 +21,7 @@ enum ConfigError: Error {
 // MARK: WebService
 class WebService {
     
-    func getUsage(url: URL, authToken: String, clientId: String) async throws -> Usage {
-        
-        
+    private func querySLT(url: URL, authToken: String, clientId: String) async throws -> Data {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue("Bearer " + authToken, forHTTPHeaderField: "Authorization")
@@ -41,7 +39,18 @@ class WebService {
             throw NetworkError.invalidResponse
         }
         
-        return try JSONDecoder().decode(Usage.self, from: data)
+        return data
+    }
+    
+    func getUsage(url: URL, authToken: String, clientId: String) async throws -> Usage {
+        let response = try await querySLT(url: url, authToken: authToken, clientId: clientId)
+        return try JSONDecoder().decode(Usage.self, from: response)
+    }
+    
+    func getVASUsage(url: URL, authToken: String, clientId: String) async throws -> VASUsage {
+        let response = try await querySLT(url: url, authToken: authToken, clientId: clientId)
+        
+        return try JSONDecoder().decode(VASUsage.self, from: response)
     }
     
 }

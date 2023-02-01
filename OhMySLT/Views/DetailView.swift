@@ -21,18 +21,24 @@ struct DetailView: View {
                     Text(usageDetail.name.toHuman())
                         .fontWeight(.bold)
                         .font(.title3)
-                    if usageDetail.remaining != nil {
-                        Text(usageDetail.used + "GB Used").opacity(0.6)
+                    if let used = usageDetail.used, let limit = usageDetail.limit {
+                        HStack(alignment: .center, spacing: 4) {
+                            Image(systemName: "percent").scaleEffect(0.9)
+                            Text(used + " / " + limit + " GB")
+                        }.opacity(0.6)
                     }
+                    HStack(alignment: .center, spacing: 4) {
+                        Image(systemName: "clock.arrow.circlepath").scaleEffect(0.9)
+                        Text(usageDetail.expiryDate.replacing("-", with: " "))
+                    }.opacity(0.6)
                 }
                 Spacer()
-                if let limit = usageDetail.limit, let remaining = usageDetail.remaining {
-                    HStack(alignment: .lastTextBaseline) {
-                        Text(remaining)
+                if let remaining = usageDetail.remaining {
+                    VStack(alignment: .trailing) {
+                        Text(remaining + " GB")
                             .font(.system(size: 28))
                             .opacity(0.8)
-                        Text("/ " + limit + " GB")
-                            .font(.system(size: 16))
+                        Text("remaining")
                             .opacity(0.5)
                     }
                 } else {

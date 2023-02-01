@@ -50,7 +50,7 @@ class OhMyMenu: NSObject {
 
     func build(vm: UsageViewModel) -> NSMenu {
         let contentView = NSHostingController(rootView: MenuView(vm: vm))
-        contentView.view.frame.size = NSSize(width: 300, height: 320)
+        contentView.view.frame.size = NSSize(width: 300, height: 380)
 
         let customMenuItem = NSMenuItem()
         customMenuItem.view = contentView.view
