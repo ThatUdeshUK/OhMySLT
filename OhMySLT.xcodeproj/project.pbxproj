@@ -21,6 +21,7 @@
 		B7C00DAD296D1D830057821A /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C00DAC296D1D820057821A /* DetailView.swift */; };
 		B7C00DAF296D25590057821A /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C00DAE296D25590057821A /* String+Extensions.swift */; };
 		B7C00DB1296D36EF0057821A /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C00DB0296D36EF0057821A /* StatusView.swift */; };
+		B7CBA266298E375F00BDB1A6 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = B7CBA265298E375F00BDB1A6 /* LaunchAtLogin */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		B7C00DAC296D1D820057821A /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		B7C00DAE296D25590057821A /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		B7C00DB0296D36EF0057821A /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
+		B7CBA260298E31BD00BDB1A6 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7CBA266298E375F00BDB1A6 /* LaunchAtLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +76,7 @@
 				B72C5EED298A103B00AF6476 /* README.md */,
 				B7943E45296C413100BACA6E /* OhMySLT */,
 				B7943E44296C413100BACA6E /* Products */,
+				B7CBA25F298E31BD00BDB1A6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,6 +155,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		B7CBA25F298E31BD00BDB1A6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B7CBA260298E31BD00BDB1A6 /* ServiceManagement.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -161,12 +173,16 @@
 				B7943E3F296C413100BACA6E /* Sources */,
 				B7943E40296C413100BACA6E /* Frameworks */,
 				B7943E41296C413100BACA6E /* Resources */,
+				B7CBA267298E380A00BDB1A6 /* Launch at Login Helper */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = OhMySLT;
+			packageProductDependencies = (
+				B7CBA265298E375F00BDB1A6 /* LaunchAtLogin */,
+			);
 			productName = OhMySLT;
 			productReference = B7943E43296C413100BACA6E /* OhMySLT.app */;
 			productType = "com.apple.product-type.application";
@@ -195,6 +211,9 @@
 				Base,
 			);
 			mainGroup = B7943E3A296C413100BACA6E;
+			packageReferences = (
+				B7CBA264298E375F00BDB1A6 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
+			);
 			productRefGroup = B7943E44296C413100BACA6E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -215,6 +234,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B7CBA267298E380A00BDB1A6 /* Launch at Login Helper */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Launch at Login Helper";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = "${BUILT_PRODUCTS_DIR}/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/copy-helper-swiftpm.sh";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B7943E3F296C413100BACA6E /* Sources */ = {
@@ -360,12 +401,13 @@
 				CODE_SIGN_ENTITLEMENTS = OhMySLT/OhMySLT.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"OhMySLT/Preview Content\"";
 				DEVELOPMENT_TEAM = M8ZQSBTZ7Z;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OhMySLT/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = OhMySLT;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
@@ -390,12 +432,13 @@
 				CODE_SIGN_ENTITLEMENTS = OhMySLT/OhMySLT.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"OhMySLT/Preview Content\"";
 				DEVELOPMENT_TEAM = M8ZQSBTZ7Z;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OhMySLT/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = OhMySLT;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
@@ -434,6 +477,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B7CBA264298E375F00BDB1A6 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B7CBA265298E375F00BDB1A6 /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7CBA264298E375F00BDB1A6 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
+			productName = LaunchAtLogin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B7943E3B296C413100BACA6E /* Project object */;
 }

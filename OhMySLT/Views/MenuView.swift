@@ -31,6 +31,7 @@ struct MenuView: View {
                     } else {
                         NSApp.sendAction(Selector(("showPreferencesWindow:")), to: nil, from: nil)
                     }
+                    NSApp.activate(ignoringOtherApps: true)
                 } label: {
                     Image(systemName: "gearshape.fill")
                 }.buttonStyle(.borderless)

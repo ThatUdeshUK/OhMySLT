@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import LaunchAtLogin
 import Foundation
 
 struct SettingsView: View {
@@ -48,12 +48,10 @@ struct GeneralSettingsView: View {
     }
 }
 
-struct AdvancedSettingsView: View {
-    @AppStorage("startAtLaunch") private var startAtLaunch = true
-    
+struct AdvancedSettingsView: View {    
     var body: some View {
-        Form {
-            Toggle("Start at launch", isOn: $startAtLaunch)
+        VStack(alignment: .center) {
+            LaunchAtLogin.Toggle().padding(.bottom)
             Button("Quit OhMySLT"){
                 NSApplication.shared.terminate(nil)
             }
