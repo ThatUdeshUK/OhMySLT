@@ -41,7 +41,7 @@ struct MenuView: View {
             }
             
             VStack(alignment: .center, spacing: 0) {
-                List((vm.usage?.dataBundle.myPackageInfo.usageDetails ?? []) + (vm.vasUsage?.dataBundle.usageDetails ?? []), id: \.name) { usageDetail in
+                List((vm.usage?.dataBundle.myPackageInfo.usageDetails ?? []) + (vm.vasUsage?.dataBundle.usageDetails ?? []) + (vm.extraUsage?.dataBundle.usageDetails ?? []), id: \.name) { usageDetail in
                     DetailView(usage: usageDetail)
                 }
                 .scrollIndicators(.never)

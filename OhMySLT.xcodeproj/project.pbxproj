@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B71E876F296CFD360064A516 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71E876E296CFD360064A516 /* SettingsView.swift */; };
 		B7385C9729A4BBEF0061F910 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7385C9629A4BBEF0061F910 /* ErrorView.swift */; };
+		B7385C9929A4C8030061F910 /* FlexibleValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7385C9829A4C8030061F910 /* FlexibleValue.swift */; };
 		B7943E47296C413100BACA6E /* OhMySLTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7943E46296C413100BACA6E /* OhMySLTApp.swift */; };
 		B7943E49296C413100BACA6E /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7943E48296C413100BACA6E /* MenuView.swift */; };
 		B7943E4B296C413300BACA6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7943E4A296C413300BACA6E /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		B72C5EED298A103B00AF6476 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B72C5EEE298A145400AF6476 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B7385C9629A4BBEF0061F910 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		B7385C9829A4C8030061F910 /* FlexibleValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleValue.swift; sourceTree = "<group>"; };
 		B7943E43296C413100BACA6E /* OhMySLT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OhMySLT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7943E46296C413100BACA6E /* OhMySLTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OhMySLTApp.swift; sourceTree = "<group>"; };
 		B7943E48296C413100BACA6E /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		B7943E55296C415600BACA6E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B7385C9829A4C8030061F910 /* FlexibleValue.swift */,
 				B7943E56296C421700BACA6E /* Usage.swift */,
 				B7B6FAAD29838023003836F9 /* VASUsage.swift */,
 			);
@@ -268,6 +271,7 @@
 				B71E876F296CFD360064A516 /* SettingsView.swift in Sources */,
 				B7C00DAD296D1D830057821A /* DetailView.swift in Sources */,
 				B7C00DB1296D36EF0057821A /* StatusView.swift in Sources */,
+				B7385C9929A4C8030061F910 /* FlexibleValue.swift in Sources */,
 				B7943E49296C413100BACA6E /* MenuView.swift in Sources */,
 				B7C00DAB296D14140057821A /* List+Extensions.swift in Sources */,
 				B7943E47296C413100BACA6E /* OhMySLTApp.swift in Sources */,
@@ -405,7 +409,7 @@
 				CODE_SIGN_ENTITLEMENTS = OhMySLT/OhMySLT.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"OhMySLT/Preview Content\"";
 				DEVELOPMENT_TEAM = M8ZQSBTZ7Z;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -420,7 +424,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.udesh.OhMySLT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -436,7 +440,7 @@
 				CODE_SIGN_ENTITLEMENTS = OhMySLT/OhMySLT.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"OhMySLT/Preview Content\"";
 				DEVELOPMENT_TEAM = M8ZQSBTZ7Z;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -451,7 +455,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.udesh.OhMySLT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

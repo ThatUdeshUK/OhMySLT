@@ -53,8 +53,8 @@ struct MyPackageInfo: Codable {
 
 // MARK: - UsageDetail
 struct UsageDetail: Codable {
-    let name, used: String
-    let limit, remaining: String?
+    let name: String
+    let used, limit, remaining: FlexibleValue?
     let percentage: Int
     let volumeUnit, expiryDate: String
     let unsubscribable: Bool
@@ -70,8 +70,8 @@ struct UsageDetail: Codable {
 
 // MARK: - Summary
 struct Summary: Codable {
-    let limit: String?
-    let used, volumeUnit: String
+    let limit, used: FlexibleValue?
+    let volumeUnit: String
 
     enum CodingKeys: String, CodingKey {
         case limit, used

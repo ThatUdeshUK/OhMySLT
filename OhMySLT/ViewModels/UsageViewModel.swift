@@ -13,11 +13,13 @@ class UsageViewModel: ObservableObject {
     
     @Published var usage : Usage?
     @Published var vasUsage: VASUsage?
+    @Published var extraUsage: VASUsage?
     
     func populateUsage(subscriberID: String, clientID: String, authToken: String) async throws {
         guard subscriberID.starts(with: "94"), subscriberID.count == 11 else {
             self.usage = nil
             self.vasUsage = nil
+            self.extraUsage = nil
             throw ConfigError.invalidSubscriberID
         }
         
@@ -38,6 +40,15 @@ class UsageViewModel: ObservableObject {
             clientId: clientID
         )
         self.vasUsage = vasUsage
+        
+        let extraUsage = try await WebService().getVASUsage(
+            url: Constants.Urls.extraSummary.appending(
+                queryItems: [URLQueryItem(name: "subscriberID", value: subscriberID)]
+            ),
+            authToken: authToken,
+            clientId: clientID
+        )
+        self.extraUsage = extraUsage
     }
     
 }

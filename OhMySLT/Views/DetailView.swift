@@ -24,7 +24,7 @@ struct DetailView: View {
                     if let used = usageDetail.used, let limit = usageDetail.limit {
                         HStack(alignment: .center, spacing: 4) {
                             Image(systemName: "percent").scaleEffect(0.9)
-                            Text(used + " / " + limit + " GB")
+                            Text(used.rawValue + " / " + limit.rawValue + " GB")
                         }.opacity(0.6)
                     }
                     HStack(alignment: .center, spacing: 4) {
@@ -35,14 +35,14 @@ struct DetailView: View {
                 Spacer()
                 if let remaining = usageDetail.remaining {
                     VStack(alignment: .trailing) {
-                        Text(remaining + " GB")
+                        Text(remaining.rawValue + " GB")
                             .font(.system(size: 28))
                             .opacity(0.8)
                         Text("remaining")
                             .opacity(0.5)
                     }
                 } else {
-                    Text(usageDetail.used)
+                    Text(usageDetail.used?.rawValue ?? "")
                         .font(.system(size: 28))
                         .opacity(0.8)
                 }
@@ -68,6 +68,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(usage: UsageDetail(name: "Free", used: "60", limit: "100", remaining: "40", percentage: 40, volumeUnit: "GB", expiryDate: "12/11/2022", unsubscribable: false, timestamp: 0))
+        DetailView(usage: UsageDetail(name: "Free", used: FlexibleValue(string: "60"), limit: FlexibleValue(string: "100"), remaining: FlexibleValue(string: "40"), percentage: 40, volumeUnit: "GB", expiryDate: "12/11/2022", unsubscribable: false, timestamp: 0))
     }
 }
