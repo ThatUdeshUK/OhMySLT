@@ -13,9 +13,11 @@ struct MenuView: View {
     @AppStorage("accessToken") private var accessToken = ""
     
     @StateObject private var vm: UsageViewModel
+    @State private var configError: ConfigError?
     
     init(vm: UsageViewModel) {
         self._vm = StateObject(wrappedValue: vm)
+        self._configError = State(initialValue: nil)
     }
     
     var body: some View {
@@ -26,12 +28,7 @@ struct MenuView: View {
                     .fontDesign(.rounded)
                 Spacer()
                 Button{
-                    if #available(macOS 13, *) {
-                        NSApp.sendAction(Selector(("showSettingsWindow:")), to: nil, from: nil)
-                    } else {
-                        NSApp.sendAction(Selector(("showPreferencesWindow:")), to: nil, from: nil)
-                    }
-                    NSApp.activate(ignoringOtherApps: true)
+                    openSettings()
                 } label: {
                     Image(systemName: "gearshape.fill")
                 }.buttonStyle(.borderless)
@@ -43,10 +40,18 @@ struct MenuView: View {
                 EmptyView()
             }
             
-            List((vm.usage?.dataBundle.myPackageInfo.usageDetails ?? []) + (vm.vasUsage?.dataBundle.usageDetails ?? []), id: \.name) { usageDetail in
-                DetailView(usage: usageDetail)
+            VStack(alignment: .center, spacing: 0) {
+                List((vm.usage?.dataBundle.myPackageInfo.usageDetails ?? []) + (vm.vasUsage?.dataBundle.usageDetails ?? []), id: \.name) { usageDetail in
+                    DetailView(usage: usageDetail)
+                }
+                .scrollIndicators(.never)
+                
+                if configError != nil {
+                    ErrorView(message: mapConfigError(error: configError!), actionName: "Open Settings") {
+                        openSettings()
+                    }
+                }
             }
-            .scrollIndicators(.never)
             .task {
                 do {
                     try await vm.populateUsage(
@@ -54,9 +59,11 @@ struct MenuView: View {
                         clientID: Constants.Keys.clientID,
                         authToken: accessToken
                     )
+                    configError = nil
                 } catch ConfigError.invalidSubscriberID {
-                    print("Invalid SubscriberID")
+                    configError = ConfigError.invalidSubscriberID
                 } catch ConfigError.invalidAccessToken {
+                    configError = ConfigError.invalidAccessToken
                     print("Invalid Access Token")
                 } catch {
                     print("Unexpected Error")
@@ -64,6 +71,26 @@ struct MenuView: View {
                 }
             }
         }.frame(width: 300)
+    }
+    
+    func mapConfigError(error: ConfigError) -> String {
+        switch error {
+        case .invalidAccessToken:
+            return "Valid Access Token is not set"
+        case .invalidSubscriberID:
+            return "Valid Subscriber ID is not set"
+        case .invalidResfreshToken:
+            return "Valid Refresh Token is not set"
+        }
+    }
+    
+    func openSettings() {
+        if #available(macOS 13, *) {
+            NSApp.sendAction(Selector(("showSettingsWindow:")), to: nil, from: nil)
+        } else {
+            NSApp.sendAction(Selector(("showPreferencesWindow:")), to: nil, from: nil)
+        }
+        NSApp.activate(ignoringOtherApps: true)
     }
 }
 

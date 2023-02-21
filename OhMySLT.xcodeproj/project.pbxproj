@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B71E876F296CFD360064A516 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71E876E296CFD360064A516 /* SettingsView.swift */; };
+		B7385C9729A4BBEF0061F910 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7385C9629A4BBEF0061F910 /* ErrorView.swift */; };
 		B7943E47296C413100BACA6E /* OhMySLTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7943E46296C413100BACA6E /* OhMySLTApp.swift */; };
 		B7943E49296C413100BACA6E /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7943E48296C413100BACA6E /* MenuView.swift */; };
 		B7943E4B296C413300BACA6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7943E4A296C413300BACA6E /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		B71E876E296CFD360064A516 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B72C5EED298A103B00AF6476 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B72C5EEE298A145400AF6476 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		B7385C9629A4BBEF0061F910 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		B7943E43296C413100BACA6E /* OhMySLT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OhMySLT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7943E46296C413100BACA6E /* OhMySLTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OhMySLTApp.swift; sourceTree = "<group>"; };
 		B7943E48296C413100BACA6E /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				B7943E48296C413100BACA6E /* MenuView.swift */,
 				B7C00DAC296D1D820057821A /* DetailView.swift */,
 				B7C00DB0296D36EF0057821A /* StatusView.swift */,
+				B7385C9629A4BBEF0061F910 /* ErrorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				B7B6FAAE29838023003836F9 /* VASUsage.swift in Sources */,
 				B7943E57296C421700BACA6E /* Usage.swift in Sources */,
 				B7943E64296C458300BACA6E /* Constants.swift in Sources */,
+				B7385C9729A4BBEF0061F910 /* ErrorView.swift in Sources */,
 				B7C00DAF296D25590057821A /* String+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,7 +420,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.udesh.OhMySLT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -447,7 +451,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.udesh.OhMySLT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

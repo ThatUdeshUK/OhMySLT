@@ -16,6 +16,8 @@ class UsageViewModel: ObservableObject {
     
     func populateUsage(subscriberID: String, clientID: String, authToken: String) async throws {
         guard subscriberID.starts(with: "94"), subscriberID.count == 11 else {
+            self.usage = nil
+            self.vasUsage = nil
             throw ConfigError.invalidSubscriberID
         }
         
